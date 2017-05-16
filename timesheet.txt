@@ -1,0 +1,52 @@
+Timesheet
+
+November 17
+2 Hours
+
+November 21
+4 Hours
+
+November 23
+1 Hour
+
+November 25
+1 Hour
+
+November 27 
+2 Hour
+
+November 28
+5 Hours
+
+November 29
+2 Hours
+
+November 30
+1 Hour
+
+December 1
+3 Hours
+
+December 2
+2 Hours
+
+December 3
+1 Hour
+
+December 4
+5 Hours
+
+December 6
+4 Hours
+
+December 7
+2 Hour
+
+December 8
+4 Hours
+
+December 9
+2 Hours
+
+TOTAL HOURS:
+41 Hours

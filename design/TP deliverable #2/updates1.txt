@@ -1,0 +1,14 @@
+Updates
+
+All I had before was the board and randomly generated cards for each player
+
+Now I have the betting process with the next player starting every turn, it knows
+whe the "pot is right", so that it can go on to the next stage. It has the flop, 
+turn, and river, as well as the start of computing who has won the hand. So far
+for computing who was won the hand, all I have is the highest card, without much
+of a way for doing ties (needs to be worked on). I also have it keeping track of 
+each players chips. The decisions are made randomly for the AIs currently, and the
+user only has the option to call (works for troubleshooting my other problems).
+I think this is a minimum viable product but I plan to have a working AI and being 
+able to calculate for all poker hands, as well as something for when a player runs
+out of chips.

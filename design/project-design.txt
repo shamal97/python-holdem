@@ -1,0 +1,76 @@
+The two biggest problems I came across in my project were:
+1. Flow control of betting
+2. How to have computer players make decisions
+
+1. Flow control of betting:
+At first it seemed like it would not be too bad to make the betting go in order
+and have the next cards come out when all the betting was done. As I tested
+some of my simplest code I realized that there were many cases that needed to 
+be accounted for. For example, players folding would seem as simple as removing
+the player from a list and continueing to cycle through that list. But because
+the players are individual objects, I realized I could not create a copy of the 
+list of players for the active players (to be removed when they folded), but I 
+came to the solution that I would use a list of indexes for the active players
+in the list of all the players. Then I needed to keep track of who would start
+betting each hand, and if that player had folded mid hand, that the new rounds 
+of betting would start with the player to the original starter's left. My big
+picture solution for all of this was creating the object "Board". This kept 
+track of and controlled the betting as well as calculate the hands that the 
+player has because it serves as a connection between the deck class and the 
+player class. The nextTurn function is also a very important function because
+it makes sure the person whos turn it is next is available and if not will
+cycle to the correct person.
+
+2.How to have computer players make decisions
+This is the makeDecision function inside of the computerPlayer subclass of
+players. I set up an initial window for each player at the beginning of a 
+decision making process. There are three types of decisions, the decision before
+the cards come down on the table, the last decision after all cards are down,
+and and decision in between. For the decision before the flop, I looked at the
+value of the two cards and if they were a pair, better cards equals larger
+window and a pair would make a larger window as well. (I will get into what
+the window means later). In the inbetween stages, I looked at if the player had
+a combonation already, as well as if they had a possible combonation. This is 
+where the functions findStraightDraw and findFlushDraw come from. If the player
+was one away from a straight or flush, it would positively affect their window
+in a similar way to if they had a hand. In the final decision, I took out the
+straight draw and flush draw because there would be no more cards remaining, 
+therefore only using if the player had a hand to calculate the window. Better
+hands and better oportunities would add to the window in differing ways 
+depending on how the hand ranks compared to other combonations. Once the window
+had been calculated, I used the getDecisionFromWindow function to take the 
+number and use some randomness to make the decision, I would calculate a number
+between 1 and 100, with a normal window being somewhere from 40 to 140, and then
+if the number I calculated was withen a certain part of the window the decision
+would be to raise, within the remaining part of the window would be to call or 
+check, and if the number was not within the window, the player would fold. 
+Sometimes this is overwritten if the player would fold, but there is no reason
+to fold because no one has bet yet. In this case, the player would choose to 
+check instead of fold. 
+
+Other than these two problems I did work on making sure that the deck of cards
+was dealt correctly and would be reset when appropriate. 
+
+I also created the method to find the winner of each hand which used some of the
+same methods that the decisionmaking used to find if a player had a hand. When
+the last round of betting was completed, I made a list of dictionaries, one for 
+each of the remaining players in the hand. Then going through each players cards
+in combonation with the cards on the board, found the combonations they had and
+then the highest card in that combonation. For example if a player had 3 of a 
+kind of nines, I would add to the dictionary 3:9. Then after each players 
+dictionary was filled out, I iterated through them to find the best type of hand
+and then the best card of that type of hand in order to find who won the hand.
+
+In making my UI, I looked at other poker games. I liked how the player would sit
+front and center, with the other players around the green table. The cyan oval
+is a visual representation of whose turn it is. I chose to do this because in
+real life poker, everyone is keeping track of whos turn it is in their head
+but this is an obvious way to do it in TKinter. The buttons to raise check/call
+or fold only pop up when it is the users turn, I liked to doing this because 
+it really feels like you are up when the buttons pop up and everyone else has
+stopped. I keep the bet amount to the right of the player to keep track of how
+much everyone who is staying in should have bet that round and I have the winner
+of the hand's chip count turn yellow when the hand is over, as well as the 
+yellow description of what that person had in order to win, pops up to the left
+of the player. The original background image is actually a picture of my code
+overlayed on a poker image that I found online that is cited in my code. 
