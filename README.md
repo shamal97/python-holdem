@@ -1,4 +1,4 @@
-#Texas Holdem in Python
+# Texas Holdem in Python
 My project is a version of limit poker, with the user against computer players.
 The user as well as the computer players make their decision when it is their
 turn and the new cards come out when everyone who has stayed in has bet the
